@@ -36,7 +36,7 @@ def get_all_motor():
             for id in models_data['models'].keys():
                 models_id.append(id)
                 car_manufacturer_name[id] = models_data['car_manufacturer_name']
-                
+        print("тут еще работаем")        
         motors_id = []
         car_manufacturer_name1 = {}
         for engine_id in models_id:
@@ -49,7 +49,7 @@ def get_all_motor():
                     car_manufacturer_name1[id] = car_manufacturer_name[engine_id]
             except:
                 pass
-
+        print("тут еще работаем1")  
         for motor_id in motors_id:
 
             motor_responce = requests.get(f'https://www.racechip.de/reseller_api/v3/motor/id/{motor_id}?apikey={api_key_racechip}')
@@ -99,7 +99,7 @@ def get_all_motor():
                             data['details'] = False
                 
                 Bigcommerce_Product_Name = f'{data["name"]} / {data["car_motor_name"]}'
-                
+                print("тут еще работаем3")  
                 if data['details'] == True:
                     Bigcommerce_Product_Description = f'{data["name"]} - {data["car_short_name"]} <br\/>Performance Fuel : {data["performance_fuel"]}<br\/>Performance nm : {data["performance_nm"]}<br\/>Performance ps : {data["performance_ps"]}'
                 else:
@@ -120,7 +120,7 @@ def get_all_motor():
 
 
 
-                request_co_create_product = requests.post(f'https://api.bigcommerce.com/stores/{hach}/v3/catalog/products', headers=header, json=payload)
+                #request_co_create_product = requests.post(f'https://api.bigcommerce.com/stores/{hach}/v3/catalog/products', headers=header, json=payload)
 
 
     except:
